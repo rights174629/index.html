@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>로그인</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f5f7fa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 12px 0;
+      z-index: 999;
+    }
+
+    .nav a {
+      color: #003478;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.2s;
+    }
+
+    .nav a:hover {
+      color: #005bb5;
+    }
+
+    .login-wrapper {
+      margin-top: 215px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 36px 28px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      width: 340px;
+    }
+
+    .card h2 {
+      margin-bottom: 28px;
+      font-size: 1.8rem;
+      color: #003478;
+      text-align: center;
+    }
+
+    .card label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #003478;
+    }
+
+    .card input[type="email"],
+    .card input[type="password"] {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: #f9fbfd;
+      box-sizing: border-box;
+    }
+
+    .remember-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    .remember-row input {
+      margin-right: 8px;
+    }
+
+    .card button {
+      width: 100%;
+      padding: 14px;
+      background-color: #003478;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .card button:hover {
+      background-color: #005bb5;
+    }
+
+    .footer {
+      margin-top: 215px;
+      padding: 20px 0;
+      text-align: center;
+      width: 100%;
+      background-color: #003478;
+      color: #fff;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html">홈</a>
+    <a href="signup.html">회원가입</a>
+    <a href="login.html">로그인</a>
+  </nav>
+
+  <div class="login-wrapper">
+    <div class="card">
+      <h2>로그인</h2>
+      <form onsubmit="handleLogin(event)">
+        <label for="login-email">이메일</label>
+        <input type="email" id="login-email" required>
+
+        <label for="login-password">비밀번호</label>
+        <input type="password" id="login-password" required>
+
+        <div class="remember-row">
+          <input type="checkbox" id="keep-logged-in">
+          <label for="keep-logged-in">로그인 상태 유지</label>
+        </div>
+
+        <button type="submit">로그인</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer">
+    © 그를 숭배하라. All rights reserved.
+  </div>
+
+  <script>
+    function handleLogin(event) {
+      event.preventDefault();
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
+      const keepLoggedIn = document.getElementById("keep-logged-in").checked;
+
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      const matched = users.find(user => user.email === email && user.password === password);
+
+      if (matched) {
+        alert(`${matched.name}님, 로그인 성공!`);
+        sessionStorage.setItem("loggedInEmail", matched.email);
+        if (keepLoggedIn) {
+          localStorage.setItem("loggedInEmail", matched.email); // 로그인 유지
+        } else {
+          localStorage.removeItem("loggedInEmail"); // 유지 체크 안함
+        }
+        window.location.href = "main.html";
+      } else {
+        alert("이메일 또는 비밀번호가 올바르지 않습니다.");
+      }
+    }
+  </script>
+</body>
+</html>

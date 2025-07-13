@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>그를 숭배하라</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            background: #f5f7fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* 상단 헤더만 유지 */
+        .header {
+            background: #003478;
+            color: #fff;
+            padding: 32px 0 16px;
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* 네비게이션 */
+        .nav {
+            background: #fff;
+            border-bottom: 1px solid #e5e5e5;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 12px 0;
+        }
+
+        .nav a {
+            color: #003478;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+
+        .nav a:hover {
+            color: #0077cc;
+        }
+
+        /* 본문 */
+        .main {
+        flex: 1;
+        max-width: 700px;
+        margin: 40px auto 0 auto;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+        padding: 20px 32px 20px; /* 상하 패딩 줄임 */
+        text-align: center;
+    }
+
+        .main h1 {
+            color: #003478;
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .search-box {
+            margin: 30px 0 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-input {
+            width: 60%;
+            padding: 14px 16px;
+            border: 1px solid #bbb;
+            border-radius: 8px 0 0 8px;
+            font-size: 1.1rem;
+            outline: none;
+        }
+
+        .search-btn {
+            padding: 14px 28px;
+            border: none;
+            background: #003478;
+            color: #fff;
+            font-size: 1.1rem;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .card-list {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            margin-top: 40px;     /* 위쪽 여백 */
+            margin-bottom: 20px;  /* 아래쪽 여백 */
+        }
+
+        .card {
+        background: #f5f7fa;
+        border-radius: 12px;
+        box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+        padding: 24px 20px;
+        width: 180px;
+        text-align: center;
+        color: #003478;
+        font-weight: 500;
+        font-size: 1.05rem;
+        transition: box-shadow 0.2s, background 0.3s;
+        min-height: 140px; /* 추가: 카드 높이 통일 */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 16px rgba(0,52,120,0.12);
+            background: #eaf2fb;
+        }
+
+    .footer {
+        margin-top: 40px; /* 푸터와 위 섹션 사이 간격 증가 */
+        padding: 20px 0;
+        text-align: center;
+        width: 100%;
+        background-color: #003478;
+        color: #fff;
+        font-size: 0.95rem;
+    }
+    </style>
+</head>
+<body>
+    <div class="header">그에 대하여</div>
+    <nav class="nav">
+        <a href="index.html">홈</a>
+        <a href="signup.html">회원가입</a>
+        <a href="login.html">로그인</a>
+    </nav>
+    <div class="main">
+        <h1>박상현</h1>
+        <div class="search-box">
+            <input class="search-input" type="text" placeholder="무엇이 궁금한가요? 예) 상현이 특기" />
+            <button class="search-btn">검색</button>
+        </div>
+        <div class="card-list">
+            <div class="card">
+                <strong>상현이란?</strong><br>
+                너무 뚱뚱해서 걸을때마다 땅이 울리는 돼지!
+            </div>
+            <div class="card">
+                <strong>특기</strong><br>
+                솔직히 말하기, 먹기
+            </div>
+            <div class="card">
+                <strong>프로필</strong><br>
+                167cm, 73kg
+            </div>
+        </div>
+    </div>
+        <div class="footer">
+        © 그를 숭배하라. All rights reserved.
+    </div>
+</body>
+</html>
